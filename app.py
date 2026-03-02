@@ -559,8 +559,8 @@ if sel:
         n_simultaneos = len(mismo_periodo)
         score_prom_prov = contratos_prov["score_riesgo"].mean()
 
-        st.subheader(f"🏢 {prov}")
-        st.markdown(f"""
+st.subheader(f"🏢 {prov}")
+st.markdown(f"""
 **Total contratos:** {n_contratos}  
 **Entidades diferentes:** {n_entidades}  
 **Departamentos:** {n_dptos}  
