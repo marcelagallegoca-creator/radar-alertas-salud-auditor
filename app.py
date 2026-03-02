@@ -569,7 +569,7 @@ st.markdown(f"""
 **Score promedio riesgo:** {score_prom_prov:.1f}%
 """)
 
-    prov_alertas = []
+prov_alertas = []
     if n_entidades >= 4:
         prov_alertas.append(f"🔴 Presente en {n_entidades} entidades diferentes")
     if n_simultaneos >= 3:
