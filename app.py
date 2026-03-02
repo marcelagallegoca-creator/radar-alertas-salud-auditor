@@ -601,7 +601,7 @@ else:
             st.plotly_chart(fig_prov, use_container_width=True)
 
     # ── ÍNDICE DE CALIDAD DE DATOS ──
-    with col_calidad:
+with col_calidad:
         st.markdown('<div class="section-title">Calidad de Datos · Entidad</div>', unsafe_allow_html=True)
 
         entidad_c = df[df["entidad"] == c["entidad"]]
