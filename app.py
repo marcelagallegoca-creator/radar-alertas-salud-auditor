@@ -570,16 +570,16 @@ st.markdown(f"""
 """)
 
 prov_alertas = []
-if n_entidades >= 4:
-prov_alertas.append(f"🔴 Presente en {n_entidades} entidades diferentes")
-if n_simultaneos >= 3:
-prov_alertas.append(f"🟠 {n_simultaneos} contratos simultáneos")
-if score_prom_prov >= 50:
+    if n_entidades >= 4:
+ prov_alertas.append(f"🔴 Presente en {n_entidades} entidades diferentes")
+    if n_simultaneos >= 3:
+ prov_alertas.append(f"🟠 {n_simultaneos} contratos simultáneos")
+    if score_prom_prov >= 50:
 prov_alertas.append(f"🟠 Score promedio elevado ({score_prom_prov:.1f}%)")
-if n_dptos >= 3:
+    if n_dptos >= 3:
 prov_alertas.append(f"🟡 Opera en {n_dptos} departamentos")
 
-if prov_alertas:
+    if prov_alertas:
 st.markdown("**Señales del proveedor:**")
 for a in prov_alertas:
 st.markdown(f"- {a}")
