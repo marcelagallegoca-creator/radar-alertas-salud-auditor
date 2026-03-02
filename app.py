@@ -426,19 +426,18 @@ if sel:
     col_det, col_fact = st.columns([1, 1])
 
     with col_det:
-        st.markdown(
-            f'<div class="explanation-panel">'
-            f'<h4 style="color:#1a2a4a;margin-top:0;">📄 Contrato {c["id_contrato"]}</h4>'
-            f'<p><strong>Entidad:</strong> {c["entidad"]}</p>'
-            f'<p><strong>Departamento:</strong> {c["departamento"]}</p>'
-            f'<p><strong>Modalidad:</strong> {c["modalidad"]}</p>'
-            f'<p><strong>Objeto:</strong> {c["objeto"]}</p>'
-            f'<p><strong>Valor:</strong> {fmt_moneda(c["valor"])}</p>'
-            f'<p><strong>Valor Prom. Histórico:</strong> {fmt_moneda(c["valor_promedio_historico"])}</p>'
-            f'<p><strong>No. Oferentes:</strong> {c["num_oferentes"]}</p>'
-            f'<p><strong>Proveedor:</strong> {c["proveedor_id"]}</p>'
-            f'<p><strong>Contratos previos proveedor:</strong> {c["contratos_previos_proveedor"]}</p>'
-            f'</div>', unsafe_allow_html=True)
+        st.subheader(f"📄 Contrato {c['id_contrato']}")
+        st.markdown(f"""
+**Entidad:** {c['entidad']}  
+**Departamento:** {c['departamento']}  
+**Modalidad:** {c['modalidad']}  
+**Objeto:** {c['objeto']}  
+**Valor:** {fmt_moneda(c['valor'])}  
+**Valor Prom. Histórico:** {fmt_moneda(c['valor_promedio_historico'])}  
+**No. Oferentes:** {c['num_oferentes']}  
+**Proveedor:** {c['proveedor_id']}  
+**Contratos previos proveedor:** {c['contratos_previos_proveedor']}
+""")
 
         sobreprecio = (c["valor"] - c["valor_promedio_historico"]) / max(c["valor_promedio_historico"], 1) * 100
         alertas = []
@@ -560,16 +559,15 @@ if sel:
         n_simultaneos = len(mismo_periodo)
         score_prom_prov = contratos_prov["score_riesgo"].mean()
 
-        st.markdown(
-            f'<div class="provider-card">'
-            f'<h4 style="color:#1a2a4a;margin-top:0;">🏢 {prov}</h4>'
-            f'<p><strong>Total contratos:</strong> {n_contratos}</p>'
-            f'<p><strong>Entidades diferentes:</strong> {n_entidades}</p>'
-            f'<p><strong>Departamentos:</strong> {n_dptos}</p>'
-            f'<p><strong>Valor acumulado:</strong> {fmt_moneda(valor_total)}</p>'
-            f'<p><strong>Contratos simultáneos (mismo mes):</strong> {n_simultaneos}</p>'
-            f'<p><strong>Score promedio riesgo:</strong> {score_prom_prov:.1f}%</p>'
-            f'</div>', unsafe_allow_html=True)
+        st.subheader(f"🏢 {prov}")
+        st.markdown(f"""
+**Total contratos:** {n_contratos}  
+**Entidades diferentes:** {n_entidades}  
+**Departamentos:** {n_dptos}  
+**Valor acumulado:** {fmt_moneda(valor_total)}  
+**Contratos simultáneos (mismo mes):** {n_simultaneos}  
+**Score promedio riesgo:** {score_prom_prov:.1f}%
+""")
 
         prov_alertas = []
         if n_entidades >= 4:
